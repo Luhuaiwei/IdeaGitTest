@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhw.admin.dao.UserMapper">
+    <select id="getUserByUserName" resultType="User">
+        SELECT
+            username,
+            PASSWORD,
+            uid,
+            email,
+            authority,
+            photo
+        FROM
+            user
+        WHERE
+            username = #{username}
+    </select>
+
+    <select id="getUserByPage" resultType="User" parameterType="com.lhw.vo.PageVo">
+        SELECT
+            username,
+            PASSWORD,
+            uid,
+            email,
+            authority,
+            photo
+        FROM
+            user
+        WHERE 1!=1
+        <if test="keyword != null">
+            OR username LIKE CONCAT ('%',#{keyword},'%')
+            OR email LIKE CONCAT ('%',#{keyword},'%')
+            OR authority LIKE CONCAT ('%',#{keyword},'%')
+        </if>
+        <if test="keyword == null">
+            OR 1=1
+        </if>
+        LIMIT #{start},#{length}
+
+    </select>
+
+    <select id="getUserNum" resultType="int" parameterType="com.lhw.vo.PageVo">
+        SELECT
+            COUNT(*)
+        FROM
+            user
+        WHERE 1!=1
+        <if test="keyword != null">
+            OR username LIKE CONCAT ('%',#{keyword},'%')
+            OR email LIKE CONCAT ('%',#{keyword},'%')
+            OR authority LIKE CONCAT ('%',#{keyword},'%')
+        </if>
+        <if test="keyword == null">
+            OR 1=1
+        </if>
+
+    </select>
+
+    <delete id="delUserById">
+        DELETE FROM
+            user
+        WHERE
+            uid = #{uid}
+    </delete>
+
+    <delete id="delUsersById">
+        DELETE FROM
+            user
+        WHERE
+            uid IN
+        <foreach collection="array" open="(" close=")" item="uid" separator=",">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my-ssm-commons/my-ssm-commons.iml" filepath="$PROJECT_DIR$/my-ssm-commons/my-ssm-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-ssm-dependencies/my-ssm-dependencies.iml" filepath="$PROJECT_DIR$/my-ssm-dependencies/my-ssm-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-ssm-domain/my-ssm-domain.iml" filepath="$PROJECT_DIR$/my-ssm-domain/my-ssm-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-ssm-web-admin/my-ssm-web-admin.iml" filepath="$PROJECT_DIR$/my-ssm-web-admin/my-ssm-web-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-ssm-web-api/my-ssm-web-api.iml" filepath="$PROJECT_DIR$/my-ssm-web-api/my-ssm-web-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/my_first_modules_SSM.iml" filepath="$PROJECT_DIR$/.idea/my_first_modules_SSM.iml" />
+    </modules>
+  </component>
+</project>
